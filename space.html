@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Space Animation</title>
+  </head>
+  <link rel="stylesheet" href="space.css">
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const c = canvas.getContext('2d');
+const u = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const earth = new Image();
+const bloto = new Image();
+const uranus = new Image();
+earth.src = 'image/earth.png';
+bloto.src = 'image/bloto.png';
+uranus.src = 'image/uran.png';
+const earthSize = canvas.width * 0.1;
+const earthX = canvas.width/4;
+const earthY = canvas.height / 4;
+const blotoSize = canvas.width * 0.1;
+const blotoX = canvas.width/2;
+const blotoY = canvas.height / 2;
+const uranusSize = canvas.width * 0.1;
+const uranusX = canvas.width/8;
+const uranusY = canvas.height /8;
+function drawEarth() {
+  ctx.drawImage(earth, earthX - earthSize / 2, earthY - earthSize / 2, earthSize, earthSize);
+  c.drawImage(bloto, blotoX - blotoSize / 2, blotoY - blotoSize / 2, blotoSize, blotoSize);
+  ctx.drawImage(uranus, uranusX - uranusSize / 3, uranusY - uranusSize / 3, uranusSize, uranusSize);
+
+}
+let angle = 0;
+let angle2 = 0;
+let angle3 = 0;
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'black';
+
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.save();
+  
+  ctx.translate((earthX, earthY),(uranusX,uranusY),(blotoX,blotoY));
+
+  //u.translate(uranusX, uranusY);
+  ctx.rotate(angle,angle2,angle3);
+
+  drawEarth();
+  ctx.restore();
+  angle += 0.01;
+  angle2 += 0.02;
+  angle3 += 0.03;
+
+  requestAnimationFrame(animate);
+}
+animate();
+
+
+    </script>
+  </body>
+</html>

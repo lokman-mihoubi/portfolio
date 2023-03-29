@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#rain-section {
+  height: 100vh;
+  background-image: linear-gradient(to left,#3A98B9,#A459D1);
+  position: relative;
+}
+
+.raindrop {
+  position: absolute;
+  width: 1px;
+  height: 10px;
+  background-color: #fff;
+  animation: fall 1s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+#r{
+  text-align: center;
+}

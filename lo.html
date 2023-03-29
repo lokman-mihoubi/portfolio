@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>rain-with_canvas</title>
+    <link rel="stylesheet" href="lo.css">
+  </head>
+  <body>
+    <canvas id="myCanvas">
+
+    </canvas>
+    <script>
+            const canvas = document.getElementById('myCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const circles = [];
+
+for (let i = 0; i < 100; i++) {
+  const circle = {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 10 + 2,
+    speed: Math.random() * 3 + 1
+  };
+  circles.push(circle);
+}
+function animate() {
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  circles.forEach(circle => {
+    circle.y += circle.speed;
+    if (circle.y > canvas.height) {
+      circle.y = -circle.radius;
+    }
+    ctx.beginPath();
+    ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+  });
+}
+
+animate();
+
+////////
+// Get canvas element
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <link rel="stylesheet" href="anime.css">
+  </head>
+  <body >
+    <section id="rain-section">
+      <h2 id="r">lokm mihoubi</h2>
+    <h2 id="r">lokm mihoubi</h2>
+    <h2 id="r">lokm mihoubi</h2>
+    <h2 id="r">lokm mihoubi</h2>
+
+    </section>
+
+  <script>
+        const rainSection = document.getElementById('r');
+
+      // create 100 raindrops and add them to the section element
+      for (let i = 0; i < 100; i++) {
+      const raindrop = document.createElement('div');
+      raindrop.classList.add('raindrop');
+      raindrop.style.left = `${Math.random() * 100}%`;
+      raindrop.style.animationDelay = `${Math.random()}s`;
+      rainSection.appendChild(raindrop);
+      }
+
+  </script>
+  </body>
+</html>

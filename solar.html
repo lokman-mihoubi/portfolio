@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>solar system</title>
+    <link rel="stylesheet" href="solar.css">
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script type="text/javascript">
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      const ct = canvas.getContext('2d');
+      const c = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      function draw() {
+  // draw the sun
+  ctx.beginPath();
+  ctx.fillStyle = 'yellow';
+  ctx.arc(canvas.width/2, canvas.height/2, 50, 0, 2*Math.PI);
+  ctx.fill();
+
+  // draw the planets
+  // example: draw earth
+  const earthX = canvas.width/2 + 100 * Math.cos(angle);
+  const earthY = canvas.height/2 + 100 * Math.sin(angle);
+  ctx.beginPath();
+  ctx.fillStyle = 'blue';
+  ctx.arc(earthX, earthY, 10, 0, 2*Math.PI);
+  ctx.fill();
+  //
+  const blotX = canvas.width/2 + 200 * Math.cos(angle);
+  const blotY = canvas.height/2 + 200 * Math.sin(angle);
+  ct.beginPath();
+  ct.fillStyle = 'red';
+  ct.arc(blotX, blotY, 10, 0, 2*Math.PI);
+  ct.fill();
+  //
+  const blX = canvas.width/2 + 300 * Math.cos(ange);
+  const blY = canvas.height/2 + 300 * Math.sin(ange);
+  c.beginPath();
+  c.fillStyle = 'black';
+  c.arc(blX, blY, 10, 0, 2*Math.PI);
+  c.fill();
+
+  // update the angle for the next frame
+  angle += 0.01;
+  ange += 0.02;
+}
+let angle = 0;
+let ange = 0;
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ct.clearRect(0, 0, canvas.width, canvas.height);
+  c.clearRect(0, 0, canvas.width, canvas.height);
+  draw();
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+
+    </script>
+
+  </body>
+</html>
